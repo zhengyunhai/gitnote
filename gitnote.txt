@@ -1,0 +1,16 @@
+gitbase错误的解决方法：
+
+1.push报错：
+![rejected]  master -> master(fetch first);  ![rejected]  master -> master(non-fast-forward); 
+解决办法：
+执行：git push -u origin master -f 以及 git push origin master
+
+2.push报错：
+failed to push some refs to。。。
+这个问题是因为远程库与本地库不一致造成的，那么我们把远程库同步到本地库就可以了。 
+使用指令git pull --rebase origin master
+git pull –rebase origin master意为先取消commit记录，并且把它们
+临时保存为补丁(patch)(这些补丁放到”.git/rebase”目录中)，之后
+同步远程库到本地，最后合并补丁到本地库（push）之中。 
+
+<原文链接https://blog.csdn.net/weixin_41646716/article/details/82454189>
